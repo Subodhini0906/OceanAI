@@ -1,0 +1,19 @@
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+streamlit==1.28.1
+python-multipart==0.0.6
+# langchain==0.0.350  # Optional, not required for basic functionality
+# langchain-community==0.0.10  # Optional
+chromadb==0.4.18
+sentence-transformers==2.2.2
+pypdf2==3.0.1
+# pymupdf==1.23.8  # Optional - requires Visual Studio compilation on Windows
+unstructured==0.11.6
+ollama==0.1.6
+requests==2.31.0
+selenium==4.15.2
+beautifulsoup4==4.12.2
+lxml==4.9.3
+pydantic==2.5.0
+python-dotenv==1.0.0
+

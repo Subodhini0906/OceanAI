@@ -1,0 +1,61 @@
+UI/UX Guidelines for E-Shop Checkout Page
+
+COLOR SCHEME
+- Primary Action Buttons: Green (#4CAF50)
+- Secondary Action Buttons: Blue (#2196F3)
+- Error Messages: Red text
+- Success Messages: Green background with white text
+- Form Fields: White background with gray border (#ddd)
+
+BUTTON STYLING
+- "Add to Cart" buttons: Green background, white text, rounded corners
+- "Apply Discount" button: Blue background, white text
+- "Pay Now" button: Green background, white text, large size (18px font), full width
+- All buttons should have hover effects (darker shade on hover)
+- Disabled buttons should be gray (#ccc) and non-clickable
+
+FORM VALIDATION DISPLAY
+- Error messages must be displayed in RED text
+- Error messages appear below the invalid field
+- Error messages use 12px font size
+- Error messages are hidden by default, shown when validation fails
+- Error messages should be specific (e.g., "Email is required" vs "Please enter a valid email address")
+
+LAYOUT REQUIREMENTS
+- Page should be centered with max-width of 800px
+- White container on light gray background (#f5f5f5)
+- Sections should have padding and rounded corners
+- Cart section should be clearly separated with border
+- Form sections should have light gray background (#f9f9f9)
+
+TYPography
+- Headings: Bold, dark color (#333)
+- Body text: Arial or sans-serif font
+- Prices: Gray color (#666) for individual prices
+- Total price: Large (20px), bold, dark color (#333)
+
+INTERACTIVE ELEMENTS
+- Radio buttons should be clearly labeled
+- Input fields should have padding and rounded borders
+- Quantity inputs should be centered and narrow (60px width)
+- Discount code input should be 200px wide
+
+SUCCESS MESSAGE
+- Displayed in green background with white text
+- Centered text, large font (20px), bold
+- Message: "Payment Successful!"
+- Should appear after successful form submission
+- Should replace the form display
+
+USER FEEDBACK
+- All actions should provide visual feedback
+- Button hover states indicate interactivity
+- Error states should be immediately visible
+- Success states should be prominent and clear
+
+ACCESSIBILITY
+- All form fields should have labels
+- Required fields should be marked with asterisk (*)
+- Error messages should be associated with their fields
+- Buttons should have descriptive text
+

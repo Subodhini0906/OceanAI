@@ -1,0 +1,136 @@
+{
+  "description": "API endpoints for E-Shop Checkout functionality",
+  "base_url": "https://api.eshop.com/v1",
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/cart/add",
+      "description": "Add item to shopping cart",
+      "request_body": {
+        "item_name": "string",
+        "price": "number",
+        "quantity": "number (optional, default: 1)"
+      },
+      "response": {
+        "status": "success",
+        "cart_total": "number",
+        "item_count": "number"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/cart/update",
+      "description": "Update item quantity in cart",
+      "request_body": {
+        "item_name": "string",
+        "quantity": "number"
+      },
+      "response": {
+        "status": "success",
+        "updated_item": "object",
+        "cart_total": "number"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/apply_coupon",
+      "description": "Apply discount coupon code",
+      "request_body": {
+        "code": "string",
+        "cart_total": "number"
+      },
+      "response": {
+        "status": "success|error",
+        "discount_percent": "number (if valid)",
+        "discounted_amount": "number",
+        "message": "string"
+      },
+      "valid_codes": [
+        {
+          "code": "SAVE15",
+          "discount_percent": 15
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/calculate_shipping",
+      "description": "Calculate shipping cost based on method",
+      "request_body": {
+        "shipping_method": "standard|express",
+        "cart_total": "number"
+      },
+      "response": {
+        "shipping_cost": "number",
+        "estimated_delivery": "string"
+      },
+      "shipping_rates": {
+        "standard": {
+          "cost": 0.00,
+          "delivery_days": "5-7 business days"
+        },
+        "express": {
+          "cost": 10.00,
+          "delivery_days": "2-3 business days"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/submit_order",
+      "description": "Submit final order for processing",
+      "request_body": {
+        "name": "string (required)",
+        "email": "string (required, must be valid email)",
+        "address": "string (required)",
+        "shipping_method": "standard|express",
+        "payment_method": "creditCard|paypal",
+        "cart_items": "array",
+        "discount_code": "string (optional)",
+        "total_amount": "number"
+      },
+      "response": {
+        "status": "success|error",
+        "order_id": "string (if successful)",
+        "message": "string"
+      },
+      "validation_rules": {
+        "name": {
+          "required": true,
+          "min_length": 1
+        },
+        "email": {
+          "required": true,
+          "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"
+        },
+        "address": {
+          "required": true,
+          "min_length": 1
+        },
+        "cart_items": {
+          "required": true,
+          "min_items": 1
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/cart/summary",
+      "description": "Get current cart summary",
+      "response": {
+        "items": "array",
+        "subtotal": "number",
+        "shipping": "number",
+        "discount": "number",
+        "total": "number"
+      }
+    }
+  ],
+  "error_responses": {
+    "400": "Bad Request - Invalid input data",
+    "404": "Not Found - Resource not found",
+    "422": "Unprocessable Entity - Validation error",
+    "500": "Internal Server Error"
+  }
+}
+
